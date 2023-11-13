@@ -5,6 +5,7 @@
  * @c: character to be printed
  * Return: the char to the output
  */
+ 
 
 int my_putchar(const char c)
 {
