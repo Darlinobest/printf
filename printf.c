@@ -9,39 +9,33 @@
 
 int _printf(const char *format, ...)
 {
-	int print_char = 0;
+	unsigned int i, str_len = 0, count = 0;
 	va_list args;
-	char character, *str;
 
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
-	while (*format)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format != '%')
+		if (*format == '\0')
+			break;
+		if (format[i] != '%')
 		{
-			write(1, format, 1);
-			print_char++;
-		} else
+			my_putchar(format[i]);
+		} else if (format[i + 1] == '%')
 		{
-			format++;
-			if	(*format == '\0')
-				break;
-			if	(*format == '%')
-			{
-				write(1, format, 1);
-				print_char++;
-			} else if (*format == 'c')
-			{
-				character = va_arg(args, int);
-				my_putchar(character);
-				print_char++;
-			} else if (*format == 's')
-			{
-				str = va_arg(args, char *);
-				print_char += my_puts(str);
-			}
-		} format++;
+			my_putchar('%');
+		} else if (format[i + 1] == 'c')
+		{
+			my_putchar(va_arg(args, int));
+			i++;
+		} else if (format[i + 1] == 's')
+		{
+			my_puts(va_arg(args, char *));
+			count += (str_len - 1);
+			i++;
+		}
+		count++;
 	} va_end(args);
-	return (print_char);
+	return (count);
 }
