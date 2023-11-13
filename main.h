@@ -9,5 +9,6 @@
 int my_putchar(const char c);
 int my_puts(char *s);
 int _printf(const char *format, ...);
-
+int print_37(void);
+int _putchar(char c);
 #endif
