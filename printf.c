@@ -21,7 +21,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch(*format)
+			switch (*format)
 			{
 				case 'c':
 					my_putchar(va_arg(args, int));
@@ -38,7 +38,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					my_putchar('%'), my_putchar(*format);
-					count +=2;
+					count += 2;
 					break;
 			}
 		} else
