@@ -9,36 +9,41 @@
 
 int _printf(const char *format, ...)
 {
-	int i, count = 0, count_string = 0, digit = 0;
+	char *str;
+	int count = 0;
 	va_list args;
 
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
-	for (i = 0; format[i] != '\0'; i++)
+	while (*format != '\0')
 	{
-		if (format[i] != '%')
+		if (*format == '%')
 		{
-			my_putchar(format[i]);
-		} else if (format[i + 1] == '%')
-		{
-			my_putchar('%');
-		} else if (format[i + 1] == 'c')
-		{
-			my_putchar(va_arg(args, int));
-			i++;
-		} else if (format[i + 1] == 's')
-		{
-			count_string = my_puts(va_arg(args, char *));
-			count += (count_string - 1);
-			i++;
-		} else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-		{
-			digit = print_number(va_arg(args, int));
-			count += digit;
-			i++;
-		}
-		count++;
+			format++;
+			switch(*format)
+			{
+				case 'c':
+					my_putchar(va_arg(args, int));
+					count++;
+					break;
+				case 's':
+					str = va_arg(args, char *);
+					my_puts(str);
+					count += strlen(str);
+					break;
+				case '%':
+					my_putchar('%');
+					count++;
+					break;
+				default:
+					my_putchar('%'), my_putchar(*format);
+					count +=2;
+					break;
+			}
+		} else
+			my_putchar(*format), count++;
+		format++;
 	} va_end(args);
 	return (count);
 }

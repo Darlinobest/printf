@@ -15,7 +15,8 @@ int my_puts(char *s)
 
 	while (*s)
 	{
-		count += my_putchar(*s);
+		my_putchar(*s);
+		count++;
 		s++;
 	}
 	return (count);
