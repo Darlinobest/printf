@@ -8,5 +8,8 @@
 
 int my_putchar(const char c)
 {
-	return (write(1, &c, 1));
+	int count = 0;
+
+	count += write(1, &c, 1);
+	return (count);
 }

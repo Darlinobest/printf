@@ -7,8 +7,9 @@
 #include <string.h>
 
 int my_putchar(const char c);
-void my_puts(char *s, int *count);
+int my_puts(char *s);
 int _printf(const char *format, ...);
 int print_37(void);
+int handle_spec(va_list args, const char *for_mat);
 
 #endif

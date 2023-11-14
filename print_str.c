@@ -3,18 +3,20 @@
 /**
  * my_puts - prints a string
  * @s: string to be printed
- * @count: keeps track of the string count
+ * Return: string count
  */
 
-void my_puts(char *s, int *count)
+int my_puts(char *s)
 {
+	int count = 0;
+
 	if (s == NULL)
 		s = "(null)";
 
 	while (*s)
 	{
-		my_putchar(*s);
-		(*count)++;
+		count += my_putchar(*s);
 		s++;
 	}
+	return (count);
 }
