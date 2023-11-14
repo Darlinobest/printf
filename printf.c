@@ -9,22 +9,36 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
+	int i, count = 0, count_string = 0, digit = 0;
 	va_list args;
 
 	if (format == NULL)
 		return (-1);
 	va_start(args, format);
-	while (*format)
+	for (i = 0; format[i] != '\0'; i++)
 	{
-		if (*format == '%')
+		if (format[i] != '%')
 		{
-			format++;
-			count += handle_spec(args, format);
-		} else
+			my_putchar(format[i]);
+		} else if (format[i + 1] == '%')
 		{
-			count += my_putchar(*format);
-		} format++;
+			my_putchar('%');
+		} else if (format[i + 1] == 'c')
+		{
+			my_putchar(va_arg(args, int));
+			i++;
+		} else if (format[i + 1] == 's')
+		{
+			count_string = my_puts(va_arg(args, char *));
+			count += (count_string - 1);
+			i++;
+		} else if (format[i + 1] == 'd' || format[i + 1] == 'i')
+		{
+			digit = print_number(va_arg(args, int));
+			count += digit;
+			i++;
+		}
+		count++;
 	} va_end(args);
 	return (count);
 }
