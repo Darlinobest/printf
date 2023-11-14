@@ -20,29 +20,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
-			switch (*format)
-			{
-				case 'c':
-					count += handle_char(args);
-					break;
-				case 's':
-					count += handle_str(args);
-					break;
-				case 'd':
-				case 'i':
-					count += handle_number(args);
-					break;
-				case 'b':
-					count += handle_binary(args);
-				       break;	
-				case '%':
-					count += handle_percent();
-					break;
-				default:
-					my_putchar('%'), my_putchar(*format);
-					count += 2;
-					break;
-			}
+			count = handle_format_spec(*format, args, &count);
 		} else
 			my_putchar(*format), count++;
 		format++;

@@ -1,5 +1,7 @@
 #include "main.h"
 
+int my_putchar(const char c);
+
 /**
  * handle_binary - handles the specifier 'b'
  * @n: number in base 10 to be converted
