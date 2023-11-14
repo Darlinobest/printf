@@ -9,7 +9,6 @@
 
 int _printf(const char *format, ...)
 {
-	char *str;
 	int count = 0;
 	va_list args;
 
@@ -24,17 +23,17 @@ int _printf(const char *format, ...)
 			switch (*format)
 			{
 				case 'c':
-					my_putchar(va_arg(args, int));
-					count++;
+					count += handle_char(args);
 					break;
 				case 's':
-					str = va_arg(args, char *);
-					my_puts(str);
-					count += strlen(str);
+					count += handle_str(args);
+					break;
+				case 'd':
+				case 'i':
+					count += handle_number(args);
 					break;
 				case '%':
-					my_putchar('%');
-					count++;
+					count += handle_percent();
 					break;
 				default:
 					my_putchar('%'), my_putchar(*format);
