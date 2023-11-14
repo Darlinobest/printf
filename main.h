@@ -11,5 +11,5 @@ int my_puts(char *s);
 int _printf(const char *format, ...);
 int print_37(void);
 int handle_spec(va_list args, const char *for_mat);
-
+int print_bin(va_list var);
 #endif
