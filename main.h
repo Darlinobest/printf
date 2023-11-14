@@ -7,10 +7,8 @@
 #include <string.h>
 
 int my_putchar(const char c);
-int my_puts(char *s);
+void my_puts(char *s, int *count);
 int _printf(const char *format, ...);
 int print_37(void);
-int _putchar(char c);
-int print_char(va_list val);
-int printf_string(va_list val);
+
 #endif

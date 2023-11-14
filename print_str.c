@@ -6,13 +6,15 @@
  * Return: length of string printed
  */
 
-int my_puts(char *s)
+void my_puts(char *s, int *count)
 {
-	int length;
+	if (s == NULL)
+		s = "(null)";
 
-	for (length = 0; s[length] != '\0'; length++)
+	while (*s)
 	{
-		my_putchar(s[length]);
+		my_putchar(*s);
+		(*count)++;
+		s++;
 	}
-	return (length);
 }
