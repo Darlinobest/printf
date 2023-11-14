@@ -3,7 +3,7 @@
 /**
  * my_puts - prints a string
  * @s: string to be printed
- * Return: length of string printed
+ * @count: keeps track of the string count
  */
 
 void my_puts(char *s, int *count)
