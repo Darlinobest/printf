@@ -43,3 +43,13 @@ int handle_number(va_list args)
 {
 	return (print_number(va_arg(args, int)));
 }
+/**
+ * handle_number - handles the specifiers 'd' and 'i'
+ * @args: container to store arguments
+ * Return: bytes/ character to be printed
+ */
+
+int handle_binary(va_list args)
+{
+	return (print_binary(va_arg(args, unsigned int)));
+}

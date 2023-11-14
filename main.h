@@ -16,5 +16,7 @@ int handle_char(va_list args);
 int handle_str(va_list args);
 int handle_percent(void);
 int handle_number(va_list args);
+int print_binary(unsigned int n);
+int handle_binary(va_list args);
 
 #endif

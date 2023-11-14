@@ -32,6 +32,9 @@ int _printf(const char *format, ...)
 				case 'i':
 					count += handle_number(args);
 					break;
+				case 'b':
+					count += handle_binary(args);
+				       break;	
 				case '%':
 					count += handle_percent();
 					break;
