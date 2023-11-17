@@ -14,6 +14,7 @@ int handle_char(va_list args);
 int handle_str(va_list args);
 int handle_percent(void);
 int handle_number(va_list args);
+int print_num(unsigned int num);
 int print_binary(unsigned int n);
 int handle_binary(va_list args);
 int handle_format_spec(char spec, va_list args, int *count);

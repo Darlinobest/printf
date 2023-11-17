@@ -11,5 +11,5 @@ int print_unsigned(va_list args)
 	unsigned int num;
 
 	num = va_arg(args, unsigned int);
-	return (print_number(num));
+	return (print_num(num));
 }
