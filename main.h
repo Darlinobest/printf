@@ -23,5 +23,9 @@ int print_unsigned(va_list args);
 int handle_hex(va_list args);
 int handle_upper_hex(va_list args);
 int print_hexadecimal(unsigned int num, int upcase);
+int handle_ptr(va_list args);
+int handle_hex_addr(void *ptr);
+int print_hex_recurs(unsigned long int num);
+char hex_digit(int n);
 
 #endif

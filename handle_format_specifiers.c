@@ -33,6 +33,9 @@ int handle_format_spec(char spec, va_list args, int *count)
 		case 'b':
 			*count += handle_binary(args);
 			break;
+		case 'p':
+			count += handle_ptr(args);
+			break;
 		case 'u':
 			count += print_unsigned(args);
 			break;
