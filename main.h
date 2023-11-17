@@ -17,6 +17,10 @@ int handle_number(va_list args);
 int print_binary(unsigned int n);
 int handle_binary(va_list args);
 int handle_format_spec(char spec, va_list args, int *count);
-int print_decimal(int n);
-int print_octal(va_list arg);
+int handle_octal(va_list arg);
+int print_unsigned(va_list args);
+int handle_hex(va_list args);
+int handle_upper_hex(va_list args);
+int print_hexadecimal(unsigned int num, int upcase);
+
 #endif

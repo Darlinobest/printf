@@ -33,6 +33,18 @@ int handle_format_spec(char spec, va_list args, int *count)
 		case 'b':
 			*count += handle_binary(args);
 			break;
+		case 'u':
+			count += print_unsigned(args);
+			break;
+		case 'o':
+			count += handle_octal(args);
+			break;
+		case 'x':
+			count += handle_hex(args);
+			break;
+		case 'X':
+			count += handle_upper_hex(args);
+				break;
 		case '%':
 			*count += handle_percent();
 			break;
